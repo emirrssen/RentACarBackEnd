@@ -1,0 +1,25 @@
+﻿using Entities.Concrete;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DataAccess.Concrete.EntityFramework.Context
+{
+    public class RentACarContext : DbContext
+    {
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=RentACar;Trusted_Connection=true");
+        }
+
+        public DbSet<Car> Cars;
+        public DbSet<Brand> Brands;
+        public DbSet<Color> Colors;
+        public DbSet<User> Users;
+        public DbSet<Customer> Customers;
+        public DbSet<Rental> Rentals;
+    }
+}

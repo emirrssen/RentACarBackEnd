@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Business.ValidationRules;
+using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -18,6 +20,8 @@ namespace Business.Concrete
         {
             _brandDal = brandDal;
         }
+
+        [ValidationAspect(typeof(BrandValidator))]
         public IResult AddBrand(Brand brand)
         {
             _brandDal.Add(brand);
@@ -42,6 +46,7 @@ namespace Business.Concrete
             return new SuccessDataResult<Brand>(result);
         }
 
+        [ValidationAspect(typeof(BrandValidator))]
         public IResult UpdateBrand(Brand brand)
         {
             _brandDal.Update(brand);
