@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.Constants;
 using Business.ValidationRules;
 using Core.AspectMessages;
 using Core.Aspects.Autofac.Validation;
@@ -34,7 +35,7 @@ namespace Business.Concrete
                 return new ErrorResult(Results.ValidationResult.Message);
             }
             _carDal.Add(car);
-            return new SuccessResult();
+            return new SuccessResult(Messages.CarAddedSuccessfully);
         }
 
         [ValidationAspect(typeof(CarValidator))]
@@ -46,37 +47,37 @@ namespace Business.Concrete
                 return new ErrorResult(Results.ValidationResult.Message);
             }
             _carDal.Delete(car);
-            return new SuccessResult();
+            return new SuccessResult(Messages.CarDeletedSuccessfully);
         }
 
         public IDataResult<List<Car>> GetAllCars()
         {
             var result = _carDal.GetAll();
-            return new SuccessDataResult<List<Car>>(result);
+            return new SuccessDataResult<List<Car>>(result, Messages.CarsListedSuccessfully);
         }
 
         public IDataResult<Car> GetCarById(int carId)
         {
             var result = _carDal.Get(x => x.Id == carId);
-            return new SuccessDataResult<Car>(result);
+            return new SuccessDataResult<Car>(result, Messages.CarListedSuccessfully);
         }
 
         public IDataResult<List<Car>> GetCarsByBrandId(int brandId)
         {
             var result = _carDal.GetAll(x => x.BrandId == brandId);
-            return new SuccessDataResult<List<Car>>(result);
+            return new SuccessDataResult<List<Car>>(result, Messages.CarsListedSuccessfully);
         }
 
         public IDataResult<List<Car>> GetCarsByColorId(int colorId)
         {
             var result = _carDal.GetAll(x => x.ColorId == colorId);
-            return new SuccessDataResult<List<Car>>(result);    
+            return new SuccessDataResult<List<Car>>(result, Messages.CarsListedSuccessfully);    
         }
 
         public IDataResult<List<CarForListDto>> ListAllCars()
         {
             var result = _carDal.ListAllCars();
-            return new SuccessDataResult<List<CarForListDto>>(result);
+            return new SuccessDataResult<List<CarForListDto>>(result, Messages.CarsListedSuccessfully);
         }
 
         [ValidationAspect(typeof(CarValidator))]
@@ -88,7 +89,7 @@ namespace Business.Concrete
                 return new ErrorResult(Results.ValidationResult.Message);
             }
             _carDal.Update(car);
-            return new SuccessResult();
+            return new SuccessResult(Messages.CarUpdatedSuccessfully);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.Constants;
 using Business.ValidationRules;
 using Core.AspectMessages;
 using Core.Aspects.Autofac.Validation;
@@ -34,7 +35,7 @@ namespace Business.Concrete
                 return new ErrorResult(Results.ValidationResult.Message);
             }
             _userDal.Add(user);
-            return new SuccessResult();
+            return new SuccessResult(Messages.UserAddedSuccessfully);
         }
 
         [ValidationAspect(typeof(UserValidator))]
@@ -47,19 +48,19 @@ namespace Business.Concrete
                 return new ErrorResult(Results.ValidationResult.Message);
             }
             _userDal.Delete(user);
-            return new SuccessResult();
+            return new SuccessResult(Messages.UserDeletedSuccessfully);
         }
 
         public IDataResult<List<User>> GetAllUsers()
         {
             var result = _userDal.GetAll();
-            return new SuccessDataResult<List<User>>(result);
+            return new SuccessDataResult<List<User>>(result, Messages.UsersListedSuccessfully);
         }
 
         public IDataResult<User> GetUserById(int userId)
         {
             var result = _userDal.Get(x => x.Id == userId);
-            return new SuccessDataResult<User>(result);
+            return new SuccessDataResult<User>(result, Messages.UserListedSuccessfully);
         }
 
         [ValidationAspect(typeof(UserValidator))]
@@ -72,7 +73,7 @@ namespace Business.Concrete
                 return new ErrorResult(Results.ValidationResult.Message);
             }
             _userDal.Update(user);
-            return new SuccessResult();
+            return new SuccessResult(Messages.UserUpdatedSuccessfully);
         }
     }
 }

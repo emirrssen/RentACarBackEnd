@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.Constants;
 using Business.ValidationRules;
 using Core.AspectMessages;
 using Core.Aspects.Autofac.Validation;
@@ -32,7 +33,7 @@ namespace Business.Concrete
                 return new ErrorResult(Results.ValidationResult.Message);
             }
             _colorDal.Add(color);
-            return new SuccessResult();
+            return new SuccessResult(Messages.ColorAddedSuccessfully);
         }
 
         [ValidationAspect(typeof(ColorValidator))]
@@ -44,19 +45,19 @@ namespace Business.Concrete
                 return new ErrorResult(Results.ValidationResult.Message);
             }
             _colorDal.Delete(color);
-            return new SuccessResult();
+            return new SuccessResult(Messages.ColorDeletedSuccessfully);
         }
 
         public IDataResult<List<Color>> GetAllColors()
         {
             var result = _colorDal.GetAll();
-            return new SuccessDataResult<List<Color>>(result);
+            return new SuccessDataResult<List<Color>>(result, Messages.ColorsListedSuccessfully);
         }
 
         public IDataResult<Color> GetColorById(int colorId)
         {
             var result = _colorDal.Get(x => x.Id == colorId);
-            return new SuccessDataResult<Color>(result);
+            return new SuccessDataResult<Color>(result, Messages.ColorListedSuccessfully);
         }
 
         [ValidationAspect(typeof(ColorValidator))]
@@ -68,7 +69,7 @@ namespace Business.Concrete
                 return new ErrorResult(Results.ValidationResult.Message);
             }
             _colorDal.Update(color);
-            return new SuccessResult();
+            return new SuccessResult(Messages.ColorUpdatedSuccessfully);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.Constants;
 using Business.ValidationRules;
 using Core.AspectMessages;
 using Core.Aspects.Autofac.Validation;
@@ -33,7 +34,7 @@ namespace Business.Concrete
                 return new ErrorResult(Results.ValidationResult.Message);
             }
             _brandDal.Add(brand);
-            return new SuccessResult();
+            return new SuccessResult(Messages.BrandAddedSuccessfully);
         }
 
         [ValidationAspect(typeof(BrandValidator))]
@@ -46,19 +47,19 @@ namespace Business.Concrete
                 return new ErrorResult(Results.ValidationResult.Message);
             }
             _brandDal.Delete(brand);
-            return new SuccessResult();
+            return new SuccessResult(Messages.BrandDeletedSuccessfully);
         }
 
         public IDataResult<List<Brand>> GetAllBrands()
         {
             var result = _brandDal.GetAll();
-            return new SuccessDataResult<List<Brand>>(result);
+            return new SuccessDataResult<List<Brand>>(result, Messages.BrandsListedSuccessfully);
         }
 
         public IDataResult<Brand> GetBrandById(int brandId)
         {
             var result = _brandDal.Get(x => x.Id == brandId);
-            return new SuccessDataResult<Brand>(result);
+            return new SuccessDataResult<Brand>(result, Messages.BrandListedSuccessfully);
         }
 
         [ValidationAspect(typeof(BrandValidator))]
@@ -70,7 +71,7 @@ namespace Business.Concrete
                 return new ErrorResult(Results.ValidationResult.Message);
             }
             _brandDal.Update(brand);
-            return new SuccessResult();
+            return new SuccessResult(Messages.BrandUpdatedSuccessfully);
         }
     }
 }

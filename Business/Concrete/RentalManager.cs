@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.Constants;
 using Business.ValidationRules;
 using Core.AspectMessages;
 using Core.Aspects.Autofac.Validation;
@@ -41,7 +42,7 @@ namespace Business.Concrete
                 return new ErrorResult();
             }
             _rentalDal.Add(rental);
-            return new SuccessResult();
+            return new SuccessResult(Messages.RentalAddedSuccessfully);
         }
 
         [ValidationAspect(typeof(RentalValidator))]
@@ -54,19 +55,19 @@ namespace Business.Concrete
                 return new ErrorResult(Results.ValidationResult.Message);
             }
             _rentalDal.Delete(rental);
-            return new SuccessResult();
+            return new SuccessResult(Messages.RentalDeletedSuccessfully);
         }
 
         public IDataResult<List<Rental>> GetAllRentals()
         {
             var result = _rentalDal.GetAll();
-            return new SuccessDataResult<List<Rental>>(result);
+            return new SuccessDataResult<List<Rental>>(result, Messages.RentalsListedSuccessfully);
         }
 
         public IDataResult<Rental> GetRentalById(int rentalId)
         {
             var result = _rentalDal.Get(x => x.Id == rentalId);
-            return new SuccessDataResult<Rental>(result);
+            return new SuccessDataResult<Rental>(result, Messages.RentalListedSuccessfully);
         }
 
         [ValidationAspect(typeof(RentalValidator))]
@@ -79,7 +80,7 @@ namespace Business.Concrete
                 return new ErrorResult(Results.ValidationResult.Message);
             }
             _rentalDal.Update(rental);
-            return new SuccessResult();
+            return new SuccessResult(Messages.RentalUpdatedSuccessfully);
         }
 
         private IResult ChecKIfCarAvailable(int carId)
@@ -89,7 +90,7 @@ namespace Business.Concrete
             {
                 if (record.ReturnDate == null)
                 {
-                    return new ErrorResult();
+                    return new ErrorResult(Messages.CarNotAvailable);
                 }
             }
             return new SuccessResult();
