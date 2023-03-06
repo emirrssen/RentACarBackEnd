@@ -39,7 +39,7 @@ namespace Business.Concrete
 
             if (businessResult != null)
             {
-                return new ErrorResult();
+                return new ErrorResult(businessResult.Message);
             }
             _rentalDal.Add(rental);
             return new SuccessResult(Messages.RentalAddedSuccessfully);

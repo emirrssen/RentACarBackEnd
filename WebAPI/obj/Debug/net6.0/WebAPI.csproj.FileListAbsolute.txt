@@ -90,3 +90,4 @@ C:\Users\emirr\OneDrive\Belgeler\My Projects\Financial Stability Portfolio\RentA
 C:\Users\emirr\OneDrive\Belgeler\My Projects\Financial Stability Portfolio\RentACar\WebAPI\obj\Debug\net6.0\WebAPI.pdb
 C:\Users\emirr\OneDrive\Belgeler\My Projects\Financial Stability Portfolio\RentACar\WebAPI\obj\Debug\net6.0\WebAPI.genruntimeconfig.cache
 C:\Users\emirr\OneDrive\Belgeler\My Projects\Financial Stability Portfolio\RentACar\WebAPI\obj\Debug\net6.0\ref\WebAPI.dll
+C:\Users\emirr\OneDrive\Belgeler\My Projects\Financial Stability Portfolio\RentACar\WebAPI\bin\Debug\net6.0\WebAPI.staticwebassets.runtime.json
