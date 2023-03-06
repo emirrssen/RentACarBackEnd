@@ -1,4 +1,8 @@
 ﻿using Business.Abstract;
+using Business.ValidationRules;
+using Core.AspectMessages;
+using Core.Aspects.Autofac.Validation;
+using Core.Utilities.AspectResults;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -12,7 +16,7 @@ namespace Business.Concrete
 {
     public class UserManager : IUserService
     {
-        // Continue with day 10 homework 4.
+        
         IUserDal _userDal;
 
         public UserManager(IUserDal userDal)
@@ -20,14 +24,28 @@ namespace Business.Concrete
             _userDal = userDal;
         }
 
+        [ValidationAspect(typeof(UserValidator))]
         public IResult AddUser(User user)
         {
+            var aspectResult = AspectRules.Check(Results.ValidationResult);
+
+            if (aspectResult != null)
+            {
+                return new ErrorResult(Results.ValidationResult.Message);
+            }
             _userDal.Add(user);
             return new SuccessResult();
         }
 
+        [ValidationAspect(typeof(UserValidator))]
         public IResult DeleteUser(User user)
         {
+            var aspectResult = AspectRules.Check(Results.ValidationResult);
+
+            if (aspectResult != null)
+            {
+                return new ErrorResult(Results.ValidationResult.Message);
+            }
             _userDal.Delete(user);
             return new SuccessResult();
         }
@@ -44,8 +62,15 @@ namespace Business.Concrete
             return new SuccessDataResult<User>(result);
         }
 
+        [ValidationAspect(typeof(UserValidator))]
         public IResult UpdateUser(User user)
         {
+            var aspectResult = AspectRules.Check(Results.ValidationResult);
+
+            if (aspectResult != null)
+            {
+                return new ErrorResult(Results.ValidationResult.Message);
+            }
             _userDal.Update(user);
             return new SuccessResult();
         }

@@ -1,6 +1,8 @@
 ﻿using Business.Abstract;
 using Business.ValidationRules;
+using Core.AspectMessages;
 using Core.Aspects.Autofac.Validation;
+using Core.Utilities.AspectResults;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -24,12 +26,25 @@ namespace Business.Concrete
         [ValidationAspect(typeof(BrandValidator))]
         public IResult AddBrand(Brand brand)
         {
+            var aspectResult = AspectRules.Check(Results.ValidationResult);
+
+            if (aspectResult != null)
+            {
+                return new ErrorResult(Results.ValidationResult.Message);
+            }
             _brandDal.Add(brand);
             return new SuccessResult();
         }
 
+        [ValidationAspect(typeof(BrandValidator))]
         public IResult DeleteBrand(Brand brand)
         {
+            var aspectResult = AspectRules.Check(Results.ValidationResult);
+
+            if (aspectResult != null)
+            {
+                return new ErrorResult(Results.ValidationResult.Message);
+            }
             _brandDal.Delete(brand);
             return new SuccessResult();
         }
@@ -49,6 +64,11 @@ namespace Business.Concrete
         [ValidationAspect(typeof(BrandValidator))]
         public IResult UpdateBrand(Brand brand)
         {
+            var aspectResults = AspectRules.Check(Results.ValidationResult);
+            if (aspectResults != null)
+            {
+                return new ErrorResult(Results.ValidationResult.Message);
+            }
             _brandDal.Update(brand);
             return new SuccessResult();
         }

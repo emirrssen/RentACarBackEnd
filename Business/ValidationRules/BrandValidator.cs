@@ -13,6 +13,7 @@ namespace Business.ValidationRules
         public BrandValidator()
         {
             RuleFor(x => x.BrandName).NotNull();
+            RuleFor(x => x.BrandName).NotEmpty();
         }
     }
 }

@@ -13,6 +13,7 @@ namespace Business.ValidationRules
         public ColorValidator()
         {
             RuleFor(x => x.ColorName).NotNull();
+            RuleFor(x => x.ColorName).NotEmpty();
         }
     }
 }

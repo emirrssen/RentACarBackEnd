@@ -1,6 +1,8 @@
 ﻿using Business.Abstract;
 using Business.ValidationRules;
+using Core.AspectMessages;
 using Core.Aspects.Autofac.Validation;
+using Core.Utilities.AspectResults;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -26,12 +28,23 @@ namespace Business.Concrete
         [ValidationAspect(typeof(CarValidator))]
         public IResult AddCar(Car car)
         {
+            var aspectResults = AspectRules.Check(Results.ValidationResult);
+            if (aspectResults != null)
+            {
+                return new ErrorResult(Results.ValidationResult.Message);
+            }
             _carDal.Add(car);
             return new SuccessResult();
         }
 
+        [ValidationAspect(typeof(CarValidator))]
         public IResult DeleteCar(Car car)
         {
+            var aspectResults = AspectRules.Check(Results.ValidationResult);
+            if (aspectResults != null)
+            {
+                return new ErrorResult(Results.ValidationResult.Message);
+            }
             _carDal.Delete(car);
             return new SuccessResult();
         }
@@ -69,6 +82,11 @@ namespace Business.Concrete
         [ValidationAspect(typeof(CarValidator))]
         public IResult UpdateCar(Car car)
         {
+            var aspectResults = AspectRules.Check(Results.ValidationResult);
+            if (aspectResults != null)
+            {
+                return new ErrorResult(Results.ValidationResult.Message);
+            }
             _carDal.Update(car);
             return new SuccessResult();
         }
