@@ -52,5 +52,8 @@ namespace Business.Constants
         public static string SuccessfulLogin = "Successful login!";
         public static string UserNotFound = "User not found!";
         public static string AccessTokenCreated = "Access token created!";
+        public static string ClaimAddedSuccessfully = "Claim added successfully!";
+        public static string UserUpdatedSuccessfully = "User updated successfully!";
+        public static string FieldsCannotBeSame = "Fields cannot be same!";
     }
 }
