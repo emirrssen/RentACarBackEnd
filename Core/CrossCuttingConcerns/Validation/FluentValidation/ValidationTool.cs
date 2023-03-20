@@ -1,5 +1,4 @@
-﻿using Core.AspectMessages;
-using Core.Utilities.Results;
+﻿using Core.Utilities.Results;
 using FluentValidation;
 using System;
 using System.Collections.Generic;
@@ -18,11 +17,7 @@ namespace Core.CrossCuttingConcerns.Validation.FluentValidation
 
             if (!result.IsValid)
             {
-                Results.ValidationResult = new ErrorResult(result.ToString());
-            }
-            else
-            {
-                Results.ValidationResult = new SuccessResult();
+                throw new ValidationException(result.Errors);
             }
         }
     }

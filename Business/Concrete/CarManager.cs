@@ -1,7 +1,7 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspects.Autofac;
 using Business.Constants;
 using Business.ValidationRules;
-using Core.AspectMessages;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.AspectResults;
 using Core.Utilities.Results;
@@ -26,14 +26,10 @@ namespace Business.Concrete
             _carDal = carDal;
         }
 
+        [SecuredOperation("user")]
         [ValidationAspect(typeof(CarValidator))]
         public IResult AddCar(Car car)
         {
-            var aspectResults = AspectRules.Check(Results.ValidationResult);
-            if (aspectResults != null)
-            {
-                return new ErrorResult(Results.ValidationResult.Message);
-            }
             _carDal.Add(car);
             return new SuccessResult(Messages.CarAddedSuccessfully);
         }
@@ -41,15 +37,11 @@ namespace Business.Concrete
         [ValidationAspect(typeof(CarValidator))]
         public IResult DeleteCar(Car car)
         {
-            var aspectResults = AspectRules.Check(Results.ValidationResult);
-            if (aspectResults != null)
-            {
-                return new ErrorResult(Results.ValidationResult.Message);
-            }
             _carDal.Delete(car);
             return new SuccessResult(Messages.CarDeletedSuccessfully);
         }
 
+        [SecuredOperation("user")]
         public IDataResult<List<Car>> GetAllCars()
         {
             var result = _carDal.GetAll();
@@ -83,11 +75,6 @@ namespace Business.Concrete
         [ValidationAspect(typeof(CarValidator))]
         public IResult UpdateCar(Car car)
         {
-            var aspectResults = AspectRules.Check(Results.ValidationResult);
-            if (aspectResults != null)
-            {
-                return new ErrorResult(Results.ValidationResult.Message);
-            }
             _carDal.Update(car);
             return new SuccessResult(Messages.CarUpdatedSuccessfully);
         }

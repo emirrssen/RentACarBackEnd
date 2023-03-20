@@ -1,4 +1,5 @@
-﻿using Entities.Concrete;
+﻿using Core.Entities.Concrete;
+using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,10 +48,9 @@ namespace Business.Constants
         public static string RentalListedSuccessfully = "Rental listed successfully!";
         public static string RentalUpdatedSuccessfully = "Rental updated successfully!";
 
-        public static string UserAddedSuccessfully = "User added successfully!";
-        public static string UserDeletedSuccessfully = "User deleted successfully!";
-        public static string UsersListedSuccessfully = "Users listed successfully!";
-        public static string UserListedSuccessfully = "User listed successfully!";
-        public static string UserUpdatedSuccessfully = "User updated successfully!";
+        public static string UserAlreadyExists = "User already exists!";
+        public static string SuccessfulLogin = "Successful login!";
+        public static string UserNotFound = "User not found!";
+        public static string AccessTokenCreated = "Access token created!";
     }
 }

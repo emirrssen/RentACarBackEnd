@@ -1,4 +1,5 @@
-﻿using Entities.Concrete;
+﻿using Core.Entities.Concrete;
+using Entities.DTOs;
 using FluentValidation;
 using System;
 using System.Collections.Generic;
@@ -8,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace Business.ValidationRules
 {
-    public class UserValidator : AbstractValidator<User>
+    public class UserForRegisterValidator : AbstractValidator<UserForRegisterDto>
     {
-        public UserValidator()
+        public UserForRegisterValidator()
         {
             RuleFor(x => x.FirstName).NotEmpty();
             RuleFor(x => x.FirstName).NotNull();

@@ -1,7 +1,6 @@
 ﻿using Business.Abstract;
 using Business.Constants;
 using Business.ValidationRules;
-using Core.AspectMessages;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.AspectResults;
 using Core.Utilities.Results;
@@ -27,11 +26,6 @@ namespace Business.Concrete
         [ValidationAspect(typeof(ColorValidator))]
         public IResult AddColor(Color color)
         {
-            var aspectResults = AspectRules.Check(Results.ValidationResult);
-            if (aspectResults != null)
-            {
-                return new ErrorResult(Results.ValidationResult.Message);
-            }
             _colorDal.Add(color);
             return new SuccessResult(Messages.ColorAddedSuccessfully);
         }
@@ -39,11 +33,6 @@ namespace Business.Concrete
         [ValidationAspect(typeof(ColorValidator))]
         public IResult DeleteColor(Color color)
         {
-            var aspectResults = AspectRules.Check(Results.ValidationResult);
-            if (aspectResults != null)
-            {
-                return new ErrorResult(Results.ValidationResult.Message);
-            }
             _colorDal.Delete(color);
             return new SuccessResult(Messages.ColorDeletedSuccessfully);
         }
@@ -63,11 +52,6 @@ namespace Business.Concrete
         [ValidationAspect(typeof(ColorValidator))]
         public IResult UpdateColor(Color color)
         {
-            var aspectResults = AspectRules.Check(Results.ValidationResult);
-            if (aspectResults != null)
-            {
-                return new ErrorResult(Results.ValidationResult.Message);
-            }
             _colorDal.Update(color);
             return new SuccessResult(Messages.ColorUpdatedSuccessfully);
         }

@@ -1,7 +1,6 @@
 ﻿using Business.Abstract;
 using Business.Constants;
 using Business.ValidationRules;
-using Core.AspectMessages;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.AspectResults;
 using Core.Utilities.Results;
@@ -29,11 +28,6 @@ namespace Business.Concrete
         [ValidationAspect(typeof(CustomerValidator))]
         public IResult AddCustomer(Customer customer)
         {
-            var aspectResults = AspectRules.Check(Results.ValidationResult);
-            if (aspectResults != null)
-            {
-                return new ErrorResult(Results.ValidationResult.Message);
-            }
             _customerDal.Add(customer);
             return new SuccessResult(Messages.CustomerAddedSuccessfully);
         }
@@ -41,11 +35,6 @@ namespace Business.Concrete
         [ValidationAspect(typeof(CustomerValidator))]
         public IResult DeleteCustomer(Customer customer)
         {
-            var aspectResults = AspectRules.Check(Results.ValidationResult);
-            if (aspectResults != null)
-            {
-                return new ErrorResult(Results.ValidationResult.Message);
-            }
             _customerDal.Delete(customer);
             return new SuccessResult(Messages.CustomerDeletedSuccessfully);
         }
@@ -65,11 +54,6 @@ namespace Business.Concrete
         [ValidationAspect(typeof(CustomerValidator))]
         public IResult UpdateCustomer(Customer customer)
         {
-            var aspectResults = AspectRules.Check(Results.ValidationResult);
-            if (aspectResults != null)
-            {
-                return new ErrorResult(Results.ValidationResult.Message);
-            }
             _customerDal.Update(customer);
             return new SuccessResult(Messages.CustomerUpdatedSuccessfully);
         }

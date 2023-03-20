@@ -1,12 +1,11 @@
 ﻿using Business.Abstract;
 using Business.Constants;
 using Business.ValidationRules;
-using Core.AspectMessages;
 using Core.Aspects.Autofac.Validation;
+using Core.Entities.Concrete;
 using Core.Utilities.AspectResults;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
-using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,55 +24,19 @@ namespace Business.Concrete
             _userDal = userDal;
         }
 
-        [ValidationAspect(typeof(UserValidator))]
-        public IResult AddUser(User user)
+        public void Add(User user)
         {
-            var aspectResult = AspectRules.Check(Results.ValidationResult);
-
-            if (aspectResult != null)
-            {
-                return new ErrorResult(Results.ValidationResult.Message);
-            }
             _userDal.Add(user);
-            return new SuccessResult(Messages.UserAddedSuccessfully);
         }
 
-        [ValidationAspect(typeof(UserValidator))]
-        public IResult DeleteUser(User user)
+        public User GetByMail(string email)
         {
-            var aspectResult = AspectRules.Check(Results.ValidationResult);
-
-            if (aspectResult != null)
-            {
-                return new ErrorResult(Results.ValidationResult.Message);
-            }
-            _userDal.Delete(user);
-            return new SuccessResult(Messages.UserDeletedSuccessfully);
+            return _userDal.Get(user => user.Email == email);
         }
 
-        public IDataResult<List<User>> GetAllUsers()
+        public List<OperationClaim> GetClaims(User user)
         {
-            var result = _userDal.GetAll();
-            return new SuccessDataResult<List<User>>(result, Messages.UsersListedSuccessfully);
-        }
-
-        public IDataResult<User> GetUserById(int userId)
-        {
-            var result = _userDal.Get(x => x.Id == userId);
-            return new SuccessDataResult<User>(result, Messages.UserListedSuccessfully);
-        }
-
-        [ValidationAspect(typeof(UserValidator))]
-        public IResult UpdateUser(User user)
-        {
-            var aspectResult = AspectRules.Check(Results.ValidationResult);
-
-            if (aspectResult != null)
-            {
-                return new ErrorResult(Results.ValidationResult.Message);
-            }
-            _userDal.Update(user);
-            return new SuccessResult(Messages.UserUpdatedSuccessfully);
+            return _userDal.GetClaims(user);
         }
     }
 }
