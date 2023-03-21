@@ -1,5 +1,8 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspects.Autofac;
 using Business.Constants;
+using Core.Aspects.Autofac.Performance;
+using Core.Aspects.Autofac.Transaction;
 using Core.Utilities.Business;
 using Core.Utilities.Helpers.FileHelper;
 using Core.Utilities.Results;
@@ -24,6 +27,8 @@ namespace Business.Concrete
             _fileHelper = fileHelper;
         }
 
+        [TransactionScopeAspect]
+        [SecuredOperation("user")]
         public IResult Add(IFormFile file, CarImage carImage)
         {
             IResult result = BusinessRules.Run(CheckIfCarImageLimit(carImage.CarId));
@@ -37,6 +42,8 @@ namespace Business.Concrete
             return new SuccessResult(Messages.CarImageAddedSuccessfully);
         }
 
+        [TransactionScopeAspect]
+        [SecuredOperation("user")]
         public IResult Delete(CarImage carImage)
         {
             _fileHelper.Delete(PathConstants.ImagePath + carImage.ImagePath);
@@ -44,11 +51,15 @@ namespace Business.Concrete
             return new SuccessResult(Messages.CarImageDeletedSuccessfully);
         }
 
+        [PerformanceAspect(10)]
+        [SecuredOperation("user")]
         public IDataResult<List<CarImage>> GetAll()
         {
             return new SuccessDataResult<List<CarImage>>(_carImageDal.GetAll(), Messages.CarImagesListedSuccessfully);
         }
 
+        [PerformanceAspect(10)]
+        [SecuredOperation("user")]
         public IDataResult<List<CarImage>> GetByCarId(int carId)
         {
             var result = BusinessRules.Run(CheckCarImage(carId));
@@ -59,11 +70,15 @@ namespace Business.Concrete
             return new SuccessDataResult<List<CarImage>>(_carImageDal.GetAll(c => c.CarId == carId), Messages.CarImageListedSuccessfully);
         }
 
+        [PerformanceAspect(10)]
+        [SecuredOperation("user")]
         public IDataResult<CarImage> GetByImageId(int imageId)
         {
             return new SuccessDataResult<CarImage>(_carImageDal.Get(c => c.Id == imageId), Messages.CarImageListedSuccessfully);
         }
 
+        [TransactionScopeAspect]
+        [SecuredOperation("user")]
         public IResult Update(IFormFile file, CarImage carImage)
         {
             carImage.ImagePath = _fileHelper.Update(file, PathConstants.ImagePath + carImage.ImagePath, PathConstants.ImagePath);

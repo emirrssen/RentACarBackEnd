@@ -2,6 +2,8 @@
 using Business.BusinessAspects.Autofac;
 using Business.Constants;
 using Business.ValidationRules;
+using Core.Aspects.Autofac.Performance;
+using Core.Aspects.Autofac.Transaction;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -27,13 +29,16 @@ namespace Business.Concrete
 
         [SecuredOperation("user")]
         [ValidationAspect(typeof(CarValidator))]
+        [TransactionScopeAspect]
         public IResult AddCar(Car car)
         {
             _carDal.Add(car);
             return new SuccessResult(Messages.CarAddedSuccessfully);
         }
 
+        [SecuredOperation("user")]
         [ValidationAspect(typeof(CarValidator))]
+        [TransactionScopeAspect]
         public IResult DeleteCar(Car car)
         {
             _carDal.Delete(car);
@@ -41,36 +46,47 @@ namespace Business.Concrete
         }
 
         [SecuredOperation("user")]
+        [PerformanceAspect(10)]
         public IDataResult<List<Car>> GetAllCars()
         {
             var result = _carDal.GetAll();
             return new SuccessDataResult<List<Car>>(result, Messages.CarsListedSuccessfully);
         }
 
+        [SecuredOperation("user")]
+        [PerformanceAspect(10)]
         public IDataResult<Car> GetCarById(int carId)
         {
             var result = _carDal.Get(x => x.Id == carId);
             return new SuccessDataResult<Car>(result, Messages.CarListedSuccessfully);
         }
 
+        [SecuredOperation("user")]
+        [PerformanceAspect(10)]
         public IDataResult<List<Car>> GetCarsByBrandId(int brandId)
         {
             var result = _carDal.GetAll(x => x.BrandId == brandId);
             return new SuccessDataResult<List<Car>>(result, Messages.CarsListedSuccessfully);
         }
 
+        [SecuredOperation("user")]
+        [PerformanceAspect(10)]
         public IDataResult<List<Car>> GetCarsByColorId(int colorId)
         {
             var result = _carDal.GetAll(x => x.ColorId == colorId);
             return new SuccessDataResult<List<Car>>(result, Messages.CarsListedSuccessfully);    
         }
 
+        [SecuredOperation("user")]
+        [PerformanceAspect(10)]
         public IDataResult<List<CarForListDto>> ListAllCars()
         {
             var result = _carDal.ListAllCars();
             return new SuccessDataResult<List<CarForListDto>>(result, Messages.CarsListedSuccessfully);
         }
 
+        [SecuredOperation("user")]
+        [TransactionScopeAspect]
         [ValidationAspect(typeof(CarValidator))]
         public IResult UpdateCar(Car car)
         {
