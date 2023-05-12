@@ -42,12 +42,6 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Color>>(result, Messages.ColorsListedSuccessfully);
         }
 
-        public IDataResult<Color> GetColorById(int colorId)
-        {
-            var result = _colorDal.Get(x => x.Id == colorId);
-            return new SuccessDataResult<Color>(result, Messages.ColorListedSuccessfully);
-        }
-
         [ValidationAspect(typeof(ColorValidator))]
         public IResult UpdateColor(Color color)
         {

@@ -48,20 +48,11 @@ namespace Business.Concrete
 
         [CacheAspect]
         [PerformanceAspect(10)]
-        [SecuredOperation("user")]
+        //[SecuredOperation("user")]
         public IDataResult<List<Brand>> GetAllBrands()
         {
             var result = _brandDal.GetAll();
             return new SuccessDataResult<List<Brand>>(result, Messages.BrandsListedSuccessfully);
-        }
-
-        [CacheAspect]
-        [PerformanceAspect(10)]
-        [SecuredOperation("user")]
-        public IDataResult<Brand> GetBrandById(int brandId)
-        {
-            var result = _brandDal.Get(x => x.Id == brandId);
-            return new SuccessDataResult<Brand>(result, Messages.BrandListedSuccessfully);
         }
 
         [CacheRemoveAspect("IBrandService.Get")]

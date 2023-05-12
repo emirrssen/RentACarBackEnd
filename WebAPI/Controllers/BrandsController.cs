@@ -49,17 +49,6 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("getbyid")]
-        public IActionResult GetBrandById(int id)
-        {
-            var result = _brandService.GetBrandById(id);
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
-        }
-
         [HttpPost("update")]
         public IActionResult UpdateBrand(Brand brand)
         {

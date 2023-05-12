@@ -49,12 +49,6 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Rental>>(result, Messages.RentalsListedSuccessfully);
         }
 
-        public IDataResult<Rental> GetRentalById(int rentalId)
-        {
-            var result = _rentalDal.Get(x => x.Id == rentalId);
-            return new SuccessDataResult<Rental>(result, Messages.RentalListedSuccessfully);
-        }
-
         [ValidationAspect(typeof(RentalValidator))]
         public IResult UpdateRental(Rental rental)
         {

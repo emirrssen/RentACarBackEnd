@@ -49,10 +49,10 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("getbyid")]
-        public IActionResult GetCustomerById(int id)
+        [HttpPost("update")]
+        public IActionResult UpdateCustomer(Customer customer)
         {
-            var result = _customerService.GetCustomerById(id);
+            var result = _customerService.UpdateCustomer(customer);
             if (result.Success)
             {
                 return Ok(result);
@@ -60,10 +60,11 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpPost("update")]
-        public IActionResult UpdateCustomer(Customer customer)
+        [HttpGet("listall")]
+        public IActionResult ListAllCustomers()
         {
-            var result = _customerService.UpdateCustomer(customer);
+            var result = _customerService.ListAllCustomers();
+
             if (result.Success)
             {
                 return Ok(result);

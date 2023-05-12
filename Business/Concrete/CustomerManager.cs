@@ -5,6 +5,7 @@ using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,6 +49,12 @@ namespace Business.Concrete
         {
             var result = _customerDal.Get(x => x.Id == customerId);
             return new SuccessDataResult<Customer>(result, Messages.CustomerListedSuccessfully);
+        }
+
+        public IDataResult<List<CustomerForListDto>> ListAllCustomers()
+        {
+            var result = _customerDal.ListAllCustomers();
+            return new SuccessDataResult<List<CustomerForListDto>>(result, Messages.CustomersListedSuccessfully);
         }
 
         [ValidationAspect(typeof(CustomerValidator))]

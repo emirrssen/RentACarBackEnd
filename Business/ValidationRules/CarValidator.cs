@@ -22,8 +22,6 @@ namespace Business.ValidationRules
             RuleFor(x => x.ModelYear).NotEmpty();
             RuleFor(x => x.DailyPrice).NotNull();
             RuleFor(x => x.DailyPrice).NotEmpty();
-            RuleFor(x => x.Description).NotNull();
-            RuleFor(x => x.Description).NotEmpty();
             RuleFor(x => x.Name).MinimumLength(2);
             RuleFor(x => x.DailyPrice).GreaterThan(0);
         }

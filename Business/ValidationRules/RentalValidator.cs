@@ -16,10 +16,9 @@ namespace Business.ValidationRules
             RuleFor(x => x.CustomerId).NotNull();
             RuleFor(x => x.CarId).NotEmpty();
             RuleFor(x => x.CarId).NotNull();
-            RuleFor(x => x.RentDate).GreaterThanOrEqualTo(DateTime.Today);
             RuleFor(x => x.RentDate).NotNull();
             RuleFor(x => x.RentDate).NotEmpty();
-            RuleFor(x => x.ReturnDate).GreaterThanOrEqualTo(DateTime.Today);
+            //RuleFor(x => x.ReturnDate).GreaterThanOrEqualTo(DateTime.Today);
         }
     }
 }
