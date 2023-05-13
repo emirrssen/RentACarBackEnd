@@ -25,37 +25,35 @@ namespace Core.Configurations
             {
                 await _next(context);
             }
-            catch (ExceptionBase ex)
+            catch (ExceptionBase exception)
             {
-
-                await HandleExceptionAsync(context, ex);
+                await HandleExceptionAsync(context, exception.Message, exception.StackTrace, exception.Title, exception.StatusCode);
+            }
+            catch (Exception exception)
+            {
+                await HandleExceptionAsync(context, exception.Message, exception.StackTrace);
             }
         }
 
-        private static Task HandleExceptionAsync(HttpContext context, ExceptionBase ex)
+        public Task HandleExceptionAsync(HttpContext context, string message, string? stackTrace,
+            string title = "Beklenmeyen Hata Oluştu", HttpStatusCode httpStatusCode = HttpStatusCode.InternalServerError)
         {
-            HttpStatusCode status;
-            var stackTrace = String.Empty;
-            string message = "";
+            HttpStatusCode httpStatus = httpStatusCode;
 
-            if (ex.StatusCode == null)
-            {
-                status = HttpStatusCode.InternalServerError;
-                stackTrace = ex.StackTrace;
-                message = ex.Message;
-            }
-            else
-            {
-                status = ex.StatusCode;
-                stackTrace = ex.StackTrace;
-                message = ex.Message;
-            }
+            if (httpStatusCode == default)
+                httpStatus = HttpStatusCode.InternalServerError;
 
-            var exceptionResult = JsonSerializer.Serialize(new { error = message });
+            var resultException = JsonSerializer.Serialize(new
+            {
+                Error = message,
+                StatusCode = (int)httpStatus,
+                Title = title
+            });
+
+            context.Response.StatusCode = (int)httpStatus;
             context.Response.ContentType = "application/json";
-            context.Response.StatusCode = (int)status;
 
-            return context.Response.WriteAsync(exceptionResult);
+            return context.Response.WriteAsync(resultException);
         }
     }
 }

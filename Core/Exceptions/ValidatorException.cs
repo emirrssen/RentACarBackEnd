@@ -9,6 +9,9 @@ namespace Core.Exceptions
 {
     public class ValidatorException : ExceptionBase
     {
-        public ValidatorException(string message) : base(message, HttpStatusCode.BadRequest) { }
+        public ValidatorException(string message) : base(HttpStatusCode.BadRequest, message) 
+        {
+            Title = "Validation Error!";
+        }
     }
 }

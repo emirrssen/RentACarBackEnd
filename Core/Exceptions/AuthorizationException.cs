@@ -9,8 +9,9 @@ namespace Core.Exceptions
 {
     public class AuthorizationException : ExceptionBase
     {
-        public AuthorizationException(string message) : base(message, HttpStatusCode.Unauthorized)
+        public AuthorizationException(string message) : base(HttpStatusCode.Unauthorized, message)
         {
+            Title = "Authorization Denied!";
         }
     }
 }

@@ -7,12 +7,14 @@ using System.Threading.Tasks;
 
 namespace Core.Exceptions
 {
-    public class ExceptionBase : Exception
+    public abstract class ExceptionBase : Exception
     {
         public HttpStatusCode StatusCode { get; private set; }
-        public ExceptionBase(string message, HttpStatusCode statusCode) : base(message)
+        public string Title { get; set; }
+
+        public ExceptionBase(HttpStatusCode statusCode, string message) : base(message)
         {
             StatusCode = statusCode;
-        }  
+        }
     }
 }
