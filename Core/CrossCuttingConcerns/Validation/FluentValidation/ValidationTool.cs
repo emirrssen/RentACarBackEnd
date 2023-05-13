@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Core.CrossCuttingConcerns.Validation.FluentValidation
 {
-    public class ValidationTool
+    public static class ValidationTool
     {
         public static void Validate(IValidator validator, object entity)
         {
@@ -17,9 +17,7 @@ namespace Core.CrossCuttingConcerns.Validation.FluentValidation
             var result = validator.Validate(context);
 
             if (!result.IsValid)
-            {
-                throw new ValidatorException(result.Errors.ToString());
-            }
+                throw new ValidatorException(string.Join(",", result.Errors.Select(e => e.ErrorMessage)));
         }
     }
 }
