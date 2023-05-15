@@ -20,18 +20,12 @@ namespace WebAPI.Controllers
         public ActionResult Login(UserForLoginDto userForLoginDto)
         {
             var userToLogin = _authService.Login(userForLoginDto);
-            if (!userToLogin.Success)
-            {
-                return BadRequest(userToLogin.Message);
-            }
 
-            var result = _authService.CreateAccessToken(userToLogin.Data);
-            if (result.Success)
+            if (userToLogin.Success)
             {
-                return Ok(result);
+                return Ok(userToLogin);
             }
-
-            return BadRequest(result.Message);
+            return BadRequest(userToLogin.Message);
         }
 
         [HttpPost("register")]

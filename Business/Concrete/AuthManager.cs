@@ -35,20 +35,25 @@ namespace Business.Concrete
             return new SuccessDataResult<AccessToken>(accessToken, Messages.AccessTokenCreated);
         }
 
-        public IDataResult<User> Login(UserForLoginDto userForLoginDto)
+        public IDataResult<LoginResultDto> Login(UserForLoginDto userForLoginDto)
         {
-            var userToCheck = _userService.GetByMail(userForLoginDto.Email).Data;
-            if (userToCheck == null)
+            var userResult = LoginTool(userForLoginDto);
+
+            if (userResult.Success)
             {
-                return new ErrorDataResult<User>(Messages.UserNotFound);
+                var accessToken = CreateAccessToken(userResult.Data);
+                var loginResult = new LoginResultDto
+                {
+                    AccessToken = accessToken.Data,
+                    FirstName = userResult.Data.FirstName,
+                    LastName = userResult.Data.LastName,
+                    Email = userResult.Data.Email
+                };
+
+                return new SuccessDataResult<LoginResultDto>(loginResult, Messages.AccessTokenCreated);
             }
 
-            if (!HashingHelper.VerifyPasswordHash(userForLoginDto.Password, userToCheck.PasswordHash, userToCheck.PasswordSalt))
-            {
-                return new ErrorDataResult<User>("Wrong password!");
-            }
-
-            return new SuccessDataResult<User>(userToCheck, Messages.SuccessfulLogin);
+            return new ErrorDataResult<LoginResultDto>(userResult.Message);
         }
 
         [ValidationAspect(typeof(UserForRegisterValidator))]
@@ -68,7 +73,7 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
-        public IDataResult<User> RegisterTool(UserForRegisterDto userForRegisterDto)
+        private IDataResult<User> RegisterTool(UserForRegisterDto userForRegisterDto)
         {
             byte[] passwordHash, passwordSalt;
             HashingHelper.CreatePasswordHash(userForRegisterDto.Password, out passwordHash, out passwordSalt);
@@ -86,10 +91,28 @@ namespace Business.Concrete
             return new SuccessDataResult<User>(user);
         }
 
+        private IDataResult<User> LoginTool(UserForLoginDto userForLoginDto)
+        {
+            var userToCheck = _userService.GetByMail(userForLoginDto.Email).Data;
+            if (userToCheck == null)
+            {
+                return new ErrorDataResult<User>(Messages.UserNotFound);
+            }
+
+            if (!HashingHelper.VerifyPasswordHash(userForLoginDto.Password, userToCheck.PasswordHash, userToCheck.PasswordSalt))
+            {
+                return new ErrorDataResult<User>("Wrong password!");
+            }
+
+            return new SuccessDataResult<User>(userToCheck, Messages.SuccessfulLogin);
+        }
+
         public void SetDefaultClaim(string email)
         {
             var user = _userService.GetByMail(email).Data;
             _userOperationClaimService.AddDefaulClaim(user);
         }
+
+
     }
 }
