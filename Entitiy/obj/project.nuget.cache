@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "a0POboQ8N7otwfFce4MyD0EWc07iPB7+egWaTs2agMxg/kX2Y3WLhPAX/4mWUrnBPfgwogHxul9SLbLeR3jisw==",
+  "dgSpecHash": "ND/I2uNWxvKE6JFIKpCsvr3xPThlQeY44wxlr08HVSDchnqUfbG/9zEuF1j24pF4vz/L10TTsmCKJWQb6x6JIA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\RentACar\\Entitiy\\Entities.csproj",
+  "projectFilePath": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\Entitiy\\Entities.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Win10\\.nuget\\packages\\autofac\\6.5.0\\autofac.6.5.0.nupkg.sha512",
     "C:\\Users\\Win10\\.nuget\\packages\\autofac.extensions.dependencyinjection\\8.0.0\\autofac.extensions.dependencyinjection.8.0.0.nupkg.sha512",

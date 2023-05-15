@@ -29,7 +29,7 @@ namespace Business.Concrete
         [CacheRemoveAspect("IBrandService.Get")]
         [ValidationAspect(typeof(BrandValidator))]
         [TransactionScopeAspect]
-        [SecuredOperation("user")]
+        //[SecuredOperation("user")]
         public IResult AddBrand(Brand brand)
         {
             _brandDal.Add(brand);
@@ -39,7 +39,7 @@ namespace Business.Concrete
         [CacheRemoveAspect("IBrandService.Get")]
         [ValidationAspect(typeof(BrandValidator))]
         [TransactionScopeAspect]
-        [SecuredOperation("user")]
+        //[SecuredOperation("user")]
         public IResult DeleteBrand(Brand brand)
         {
             _brandDal.Delete(brand);
@@ -58,7 +58,7 @@ namespace Business.Concrete
         [CacheRemoveAspect("IBrandService.Get")]
         [ValidationAspect(typeof(BrandValidator))]
         [TransactionScopeAspect]
-        [SecuredOperation("user")]
+        //[SecuredOperation("user")]
         public IResult UpdateBrand(Brand brand)
         {
             _brandDal.Update(brand);

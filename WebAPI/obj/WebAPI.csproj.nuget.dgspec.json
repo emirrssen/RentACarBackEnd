@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\RentACar\\WebAPI\\WebAPI.csproj": {}
+    "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\WebAPI\\WebAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\RentACar\\Business\\Business.csproj": {
+    "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\Business\\Business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\RentACar\\Business\\Business.csproj",
+        "projectUniqueName": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\Business\\Business.csproj",
         "projectName": "Business",
-        "projectPath": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\RentACar\\Business\\Business.csproj",
+        "projectPath": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\Business\\Business.csproj",
         "packagesPath": "C:\\Users\\Win10\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\RentACar\\Business\\obj\\",
+        "outputPath": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\Business\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Win10\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,14 +28,14 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\RentACar\\Core\\Core.csproj": {
-                "projectPath": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\RentACar\\Core\\Core.csproj"
+              "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\Core\\Core.csproj"
               },
-              "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\RentACar\\DataAccess\\DataAccess.csproj": {
-                "projectPath": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\RentACar\\DataAccess\\DataAccess.csproj"
+              "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\DataAccess\\DataAccess.csproj": {
+                "projectPath": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\DataAccess\\DataAccess.csproj"
               },
-              "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\RentACar\\Entitiy\\Entities.csproj": {
-                "projectPath": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\RentACar\\Entitiy\\Entities.csproj"
+              "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\Entitiy\\Entities.csproj": {
+                "projectPath": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\Entitiy\\Entities.csproj"
               }
             }
           }
@@ -95,14 +95,14 @@
         }
       }
     },
-    "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\RentACar\\Core\\Core.csproj": {
+    "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\RentACar\\Core\\Core.csproj",
+        "projectUniqueName": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\RentACar\\Core\\Core.csproj",
+        "projectPath": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\Core\\Core.csproj",
         "packagesPath": "C:\\Users\\Win10\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\RentACar\\Core\\obj\\",
+        "outputPath": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Win10\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -196,14 +196,14 @@
         }
       }
     },
-    "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\RentACar\\DataAccess\\DataAccess.csproj": {
+    "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\DataAccess\\DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\RentACar\\DataAccess\\DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\DataAccess\\DataAccess.csproj",
         "projectName": "DataAccess",
-        "projectPath": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\RentACar\\DataAccess\\DataAccess.csproj",
+        "projectPath": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\DataAccess\\DataAccess.csproj",
         "packagesPath": "C:\\Users\\Win10\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\RentACar\\DataAccess\\obj\\",
+        "outputPath": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Win10\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -220,8 +220,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\RentACar\\Entitiy\\Entities.csproj": {
-                "projectPath": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\RentACar\\Entitiy\\Entities.csproj"
+              "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\Entitiy\\Entities.csproj": {
+                "projectPath": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\Entitiy\\Entities.csproj"
               }
             }
           }
@@ -265,14 +265,14 @@
         }
       }
     },
-    "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\RentACar\\Entitiy\\Entities.csproj": {
+    "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\Entitiy\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\RentACar\\Entitiy\\Entities.csproj",
+        "projectUniqueName": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\Entitiy\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\RentACar\\Entitiy\\Entities.csproj",
+        "projectPath": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\Entitiy\\Entities.csproj",
         "packagesPath": "C:\\Users\\Win10\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\RentACar\\Entitiy\\obj\\",
+        "outputPath": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\Entitiy\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Win10\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -289,8 +289,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\RentACar\\Core\\Core.csproj": {
-                "projectPath": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\RentACar\\Core\\Core.csproj"
+              "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\Core\\Core.csproj"
               }
             }
           }
@@ -324,14 +324,14 @@
         }
       }
     },
-    "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\RentACar\\WebAPI\\WebAPI.csproj": {
+    "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\WebAPI\\WebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\RentACar\\WebAPI\\WebAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\WebAPI\\WebAPI.csproj",
         "projectName": "WebAPI",
-        "projectPath": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\RentACar\\WebAPI\\WebAPI.csproj",
+        "projectPath": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\WebAPI\\WebAPI.csproj",
         "packagesPath": "C:\\Users\\Win10\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\RentACar\\WebAPI\\obj\\",
+        "outputPath": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\WebAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Win10\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -348,11 +348,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\RentACar\\Business\\Business.csproj": {
-                "projectPath": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\RentACar\\Business\\Business.csproj"
+              "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\Business\\Business.csproj": {
+                "projectPath": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\Business\\Business.csproj"
               },
-              "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\RentACar\\Entitiy\\Entities.csproj": {
-                "projectPath": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\RentACar\\Entitiy\\Entities.csproj"
+              "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\Entitiy\\Entities.csproj": {
+                "projectPath": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\Entitiy\\Entities.csproj"
               }
             }
           }

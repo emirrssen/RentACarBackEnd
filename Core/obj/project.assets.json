@@ -6606,11 +6606,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\RentACar\\Core\\Core.csproj",
+      "projectUniqueName": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\Core\\Core.csproj",
       "projectName": "Core",
-      "projectPath": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\RentACar\\Core\\Core.csproj",
+      "projectPath": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\Core\\Core.csproj",
       "packagesPath": "C:\\Users\\Win10\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\RentACar\\Core\\obj\\",
+      "outputPath": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Win10\\AppData\\Roaming\\NuGet\\NuGet.Config",
