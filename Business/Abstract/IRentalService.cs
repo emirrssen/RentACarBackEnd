@@ -1,5 +1,6 @@
 ﻿using Core.Utilities.Results;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,7 @@ namespace Business.Abstract
         IResult DeleteRental(Rental rental);
         IResult UpdateRental(Rental rental);
         IDataResult<List<Rental>> GetAllRentals();
-        IDataResult<List<Rental>> GetRentalsByUserId(int userId);
+        IDataResult<List<RentalForListDto>> GetRentalsByUserId(string email);
+
     }
 }

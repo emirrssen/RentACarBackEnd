@@ -33,7 +33,14 @@ namespace Business.Concrete
 
         public IDataResult<User> GetByMail(string email)
         {
-            return new SuccessDataResult<User>(_userDal.Get(user => user.Email == email));
+            var result = _userDal.Get(user => user.Email == email);
+
+            if (result == null)
+            {
+                return new ErrorDataResult<User>(Messages.UserNotFound);
+            }
+
+            return new SuccessDataResult<User>(result);
 
         }
 
@@ -44,21 +51,51 @@ namespace Business.Concrete
 
         public IResult UpdateProfile(UserForUpdateDto userForUpdate)
         {
-            var userToUpdate = GetByMail(userForUpdate.Email).Data;
-            var checkedPassword = HashingHelper.VerifyPasswordHash(userForUpdate.Password, userToUpdate.PasswordHash, userToUpdate.PasswordSalt);
+            var userToUpdate = GetByMail(userForUpdate.Email);
 
-            if (!checkedPassword)
+            if (userToUpdate.Success)
             {
-                byte[] passwordHash, passwordSalt;
-                HashingHelper.CreatePasswordHash(userForUpdate.Password, out passwordHash, out passwordSalt);
-                userToUpdate.PasswordHash = passwordHash;
-                userToUpdate.PasswordSalt = passwordSalt;
+                userToUpdate.Data.FirstName = userForUpdate.FirstName;
+                userToUpdate.Data.LastName = userForUpdate.LastName;
+                _userDal.Update(userToUpdate.Data);
 
-                _userDal.Update(userToUpdate);
                 return new SuccessResult(Messages.UserUpdatedSuccessfully);
             }
 
-            return new ErrorResult(Messages.FieldsCannotBeSame);
+            return new ErrorResult(userToUpdate.Message);
+        }
+
+        public IDataResult<List<User>> GetAllUsers()
+        {
+            var result = _userDal.GetAll();
+            return new SuccessDataResult<List<User>>(result, Messages.UsersListed);
+        }
+
+        public IResult UpdatePassword(string oldPassword, string newPassword, UserForUpdateDto userForUpdate)
+        {
+            var userToUpdate = GetByMail(userForUpdate.Email);
+            bool checkedPassword = false;
+
+            if (userToUpdate.Success)
+            {
+                checkedPassword = HashingHelper.VerifyPasswordHash(oldPassword, userToUpdate.Data.PasswordHash, userToUpdate.Data.PasswordSalt);
+            } else
+            {
+                return new ErrorResult(Messages.UserNotFound);
+            }
+
+            if (checkedPassword)
+            {
+                byte[] passwordHash, passwordSalt;
+                HashingHelper.CreatePasswordHash(newPassword, out passwordHash, out passwordSalt);
+                userToUpdate.Data.PasswordHash = passwordHash;
+                userToUpdate.Data.PasswordSalt = passwordSalt;
+
+                _userDal.Update(userToUpdate.Data);
+                return new SuccessResult(Messages.UserUpdatedSuccessfully);
+            }
+
+            return new ErrorResult(Messages.OldPasswordIncorrect);
         }
     }
 }

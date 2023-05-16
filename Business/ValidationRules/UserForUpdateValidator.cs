@@ -16,10 +16,6 @@ namespace Business.ValidationRules.FluentValidation
             RuleFor(x => x.Email).NotEmpty();
             RuleFor(x => x.Email).NotNull();
             RuleFor(x => x.Email).Must(IsValid).WithMessage("Email format is incorrect!");
-
-            RuleFor(x => x.Password).NotEmpty();
-            RuleFor(x => x.Password).NotNull();
-            RuleFor(x => x.Password).MinimumLength(6);
         }
 
         private bool IsValid(string email)

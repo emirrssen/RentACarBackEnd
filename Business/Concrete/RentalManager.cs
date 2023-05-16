@@ -6,6 +6,7 @@ using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,10 +18,12 @@ namespace Business.Concrete
     public class RentalManager : IRentalService
     {
         IRentalDal _rentalDal;
+        IUserService _userService;
 
-        public RentalManager(IRentalDal rentalDal)
+        public RentalManager(IRentalDal rentalDal, IUserService userService)
         {
             _rentalDal = rentalDal;
+            _userService = userService;
         }
 
         [ValidationAspect(typeof(RentalValidator))]
@@ -56,11 +59,6 @@ namespace Business.Concrete
             return new SuccessResult(Messages.RentalUpdatedSuccessfully);
         }
 
-        public IDataResult<List<Rental>> GetRentalsByUserId(int userId)
-        {
-            throw new NotImplementedException();
-        }
-
         private IResult ChecKIfCarAvailable(int carId)
         {
             var result = _rentalDal.GetAll(x => x.CarId == carId);
@@ -72,6 +70,20 @@ namespace Business.Concrete
                 }
             }
             return new SuccessResult();
+        }
+
+        public IDataResult<List<RentalForListDto>> GetRentalsByUserId(string email)
+        {
+            var userResult = _userService.GetByMail(email);
+
+            if (userResult.Success)
+            {
+                var result = _rentalDal.GetDetailedRentals(userResult.Data.Id);
+                return new SuccessDataResult<List<RentalForListDto>>(result, Messages.RentalsListedSuccessfully);
+            }
+
+            return new ErrorDataResult<List<RentalForListDto>>(Messages.UserNotFound);
+
         }
     }
 }

@@ -59,5 +59,17 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
+
+        [HttpGet("getbyemail")]
+        public IActionResult GetByUserId(string email)
+        {
+            var result = _rentalService.GetRentalsByUserId(email);
+
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result.Message);
+        }
     }
 }

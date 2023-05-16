@@ -16,5 +16,7 @@ namespace Business.Abstract
         IResult Add(User user);
         IDataResult<User> GetByMail(string email);
         IResult UpdateProfile(UserForUpdateDto userForUpdate);
+        IResult UpdatePassword(string oldPassword, string newPassword, UserForUpdateDto userForUpdate);
+        IDataResult<List<User>> GetAllUsers();
     }
 }
