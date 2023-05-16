@@ -1,4 +1,5 @@
-﻿using Core.Utilities.Security.JWT;
+﻿using Core.Entities.Concrete;
+using Core.Utilities.Security.JWT;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,5 +14,6 @@ namespace Entities.DTOs
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
+        public string Claims{ get; set; }
     }
 }

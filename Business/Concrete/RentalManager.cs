@@ -56,6 +56,11 @@ namespace Business.Concrete
             return new SuccessResult(Messages.RentalUpdatedSuccessfully);
         }
 
+        public IDataResult<List<Rental>> GetRentalsByUserId(int userId)
+        {
+            throw new NotImplementedException();
+        }
+
         private IResult ChecKIfCarAvailable(int carId)
         {
             var result = _rentalDal.GetAll(x => x.CarId == carId);

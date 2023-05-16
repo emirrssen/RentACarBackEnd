@@ -12,8 +12,8 @@ namespace Business.ValidationRules
     {
         public RentalValidator()
         {
-            RuleFor(x => x.CustomerId).NotEmpty();
-            RuleFor(x => x.CustomerId).NotNull();
+            RuleFor(x => x.UserId).NotEmpty();
+            RuleFor(x => x.UserId).NotNull();
             RuleFor(x => x.CarId).NotEmpty();
             RuleFor(x => x.CarId).NotNull();
             RuleFor(x => x.RentDate).NotNull();

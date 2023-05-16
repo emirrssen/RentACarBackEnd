@@ -28,9 +28,8 @@ namespace Business.Concrete
             _userOperationClaimService = userOperationClaimService;
 
         }
-        public IDataResult<AccessToken> CreateAccessToken(User user)
+        public IDataResult<AccessToken> CreateAccessToken(User user, List<OperationClaim> claims)
         {
-            var claims = _userService.GetClaims(user).Data;
             var accessToken = _tokenHelper.CreateToken(user, claims);
             return new SuccessDataResult<AccessToken>(accessToken, Messages.AccessTokenCreated);
         }
@@ -38,16 +37,18 @@ namespace Business.Concrete
         public IDataResult<LoginResultDto> Login(UserForLoginDto userForLoginDto)
         {
             var userResult = LoginTool(userForLoginDto);
+            var claims = _userService.GetClaims(userResult.Data).Data;
 
             if (userResult.Success)
             {
-                var accessToken = CreateAccessToken(userResult.Data);
+                var accessToken = CreateAccessToken(userResult.Data, claims);
                 var loginResult = new LoginResultDto
                 {
                     AccessToken = accessToken.Data,
                     FirstName = userResult.Data.FirstName,
                     LastName = userResult.Data.LastName,
-                    Email = userResult.Data.Email
+                    Email = userResult.Data.Email,
+                    Claims = string.Join(",", claims.Select(claim => claim.Name))
                 };
 
                 return new SuccessDataResult<LoginResultDto>(loginResult, Messages.AccessTokenCreated);
