@@ -58,7 +58,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(UserForRegisterValidator))]
-        public IDataResult<User> Register(UserForRegisterDto userForRegisterDto)
+        public IDataResult<UserForRegisterDto> Register(UserForRegisterDto userForRegisterDto)
         {
             var result = RegisterTool(userForRegisterDto);
             SetDefaultClaim(userForRegisterDto.Email);
@@ -74,7 +74,7 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
-        private IDataResult<User> RegisterTool(UserForRegisterDto userForRegisterDto)
+        private IDataResult<UserForRegisterDto> RegisterTool(UserForRegisterDto userForRegisterDto)
         {
             byte[] passwordHash, passwordSalt;
             HashingHelper.CreatePasswordHash(userForRegisterDto.Password, out passwordHash, out passwordSalt);
@@ -89,7 +89,7 @@ namespace Business.Concrete
             };
 
             _userService.Add(user);
-            return new SuccessDataResult<User>(user);
+            return new SuccessDataResult<UserForRegisterDto>(userForRegisterDto, Messages.UserRegisteredSuccessfully);
         }
 
         private IDataResult<User> LoginTool(UserForLoginDto userForLoginDto)

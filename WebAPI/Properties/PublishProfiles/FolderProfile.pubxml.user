@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\Win10\Documents\My Projects\Financial Stability Portfolio\Back-End\RentACar\WebAPI\bin\Release\net6.0\publish\</_PublishTargetUrl>
+    <History>True|2023-06-07T11:15:41.1014880Z;True|2023-06-07T14:03:32.5189951+03:00;True|2023-06-07T13:59:29.0151912+03:00;True|2023-06-07T13:50:58.2408224+03:00;True|2023-06-07T13:49:30.7472022+03:00;True|2023-06-07T10:15:42.3372456+03:00;True|2023-06-07T09:49:51.0670625+03:00;True|2023-06-07T09:46:44.5974860+03:00;True|2023-06-07T09:42:09.0750829+03:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+</Project>

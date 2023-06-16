@@ -351,6 +351,12 @@
               "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\Business\\Business.csproj": {
                 "projectPath": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\Business\\Business.csproj"
               },
+              "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\Core\\Core.csproj"
+              },
+              "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\DataAccess\\DataAccess.csproj": {
+                "projectPath": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\DataAccess\\DataAccess.csproj"
+              },
               "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\Entitiy\\Entities.csproj": {
                 "projectPath": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\Entitiy\\Entities.csproj"
               }
@@ -370,6 +376,10 @@
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[6.0.11, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[6.0.13, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

@@ -52,7 +52,7 @@ namespace Business.Concrete
             var result = _carDal.GetAll();
             return new SuccessDataResult<List<Car>>(result, Messages.CarsListedSuccessfully);
         }
-
+        
         //[SecuredOperation("user")]
         [PerformanceAspect(10)]
         public IDataResult<List<CarForListDto>> ListAllCars()

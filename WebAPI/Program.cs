@@ -16,6 +16,7 @@ var tokenOptions = builder.Configuration.GetSection("TokenOptions").Get<TokenOpt
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.AddMvc();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCors();
@@ -37,16 +38,25 @@ if (app.Environment.IsDevelopment())
 }
 
 app.AddGlobalErrorHandler();
-
 app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader());
 
 app.UseHttpsRedirection();
+
+app.MapControllers();
+
+app.UseRouting();
 
 app.UseAuthentication();
 
 app.UseAuthorization();
 
-app.MapControllers();
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute(
+        name: "default",
+        pattern: "{controller}/{action=Index}/{id?}");
+});
 
 
 app.Run();

@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "Hash": "41NywSOArQMR4vYQ48Ic1Y3Wz8CtdcMfIWzAFeBKCeE=",
+  "Source": "WebAPI",
+  "BasePath": "_content/WebAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "WebAPI\\wwwroot",
+      "Source": "WebAPI",
+      "ContentRoot": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\WebAPI\\wwwroot\\",
+      "BasePath": "_content/WebAPI",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\WebAPI\\wwwroot\\Uploads\\Images\\7d6405e3-f95e-4ca1-9fd1-9b5908e5e3fb.png",
+      "SourceId": "WebAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\WebAPI\\wwwroot\\",
+      "BasePath": "_content/WebAPI",
+      "RelativePath": "Uploads/Images/7d6405e3-f95e-4ca1-9fd1-9b5908e5e3fb.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\Images\\7d6405e3-f95e-4ca1-9fd1-9b5908e5e3fb.png"
+    },
+    {
+      "Identity": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\WebAPI\\wwwroot\\Uploads\\Images\\DefaultImage.jpeg",
+      "SourceId": "WebAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Win10\\Documents\\My Projects\\Financial Stability Portfolio\\Back-End\\RentACar\\WebAPI\\wwwroot\\",
+      "BasePath": "_content/WebAPI",
+      "RelativePath": "Uploads/Images/DefaultImage.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Uploads\\Images\\DefaultImage.jpeg"
+    }
+  ]
+}

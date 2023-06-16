@@ -56,6 +56,7 @@ namespace Business.Constants
         public static string UserUpdatedSuccessfully = "User updated successfully!";
         public static string FieldsCannotBeSame = "Fields cannot be same!";
         public static string UsersListed = "Users listed successfully!";
-        internal static string OldPasswordIncorrect;
+        public static string OldPasswordIncorrect = "Old password is incorrect!";
+        public static string UserRegisteredSuccessfully = "User registered successfully!";
     }
 }

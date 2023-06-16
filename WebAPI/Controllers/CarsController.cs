@@ -38,6 +38,12 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
+        [HttpGet("sayhello")]
+        public IActionResult SayHello()
+        {
+            return Ok("Hello World!");
+        }
+
         [HttpGet("getall")]
         public IActionResult GetAllCars()
         {
